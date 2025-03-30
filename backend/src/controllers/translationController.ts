@@ -4,7 +4,7 @@ import { TranslationService, TranslationRequest } from '../services/translationS
 const translationService = new TranslationService();
 
 export class TranslationController {
-  async translateText(req: Request, res: Response) {
+  translateText = async (req: Request, res: Response) => {
     try {
       const { text, targetLanguage, sourceLanguage } = req.body as TranslationRequest;
 
@@ -25,7 +25,7 @@ export class TranslationController {
     }
   }
 
-  async getSupportedLanguages(req: Request, res: Response) {
+  getSupportedLanguages = async (req: Request, res: Response) => {
     try {
       const languages = await translationService.getSupportedLanguages();
       res.json({ languages });
